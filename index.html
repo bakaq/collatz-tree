@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Collatz</title>
+		<style>
+			:root {
+				--half-angle: 0.2rad;
+				--triple-angle: -0.7rad;
+				--transition-time: 1s;
+			}
+
+			html {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				background-color: hsl(210, 9%, 21%);
+				color: hsl(0, 0%, 100%);
+				font-size: 1.3em;
+
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#svg-wrapper {
+				width: 100%;
+				flex-grow:1;
+			}
+
+			#svg {
+				width: 100%;
+				height: 100%;
+			}
+
+			#svg line {
+				filter: url(#line-blur);
+			}
+
+			#lines {
+				transform: translate(50%, 50%);
+			}
+
+			.line-half {
+				transform: translate(20px) rotate(var(--half-angle));
+				transition: transform var(--transition-time);
+			}
+
+			.line-triple {
+				transform: translate(20px) rotate(var(--triple-angle));
+				transition: transform var(--transition-time);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="svg-wrapper">
+			<svg id="svg">
+				<!-- Cool neon blur on lines -->
+				<defs>
+					<filter id="line-blur" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+						<feMerge>
+							<feMergeNode in="blur" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
+
+				</defs>
+				<g id="lines">
+					
+				</g>
+			</svg>
+		</div>
+		<script src="release/index.js"></script>
+	</body>
+</html>
