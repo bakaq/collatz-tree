@@ -12,7 +12,19 @@ const tree = getTree(20);
 drawTree(lines, tree);
 
 // Connects the DOM
-// TODO
+const halfAngleSlider = document.querySelector("#half-angle")! as HTMLInputElement;
+const tripleAngleSlider = document.querySelector("#triple-angle")! as HTMLInputElement;
+
+
+halfAngleSlider.addEventListener("change", () => {
+	const root = document.querySelector(":root")! as HTMLElement;
+	root.style.setProperty("--half-angle", halfAngleSlider.value.toString() + "deg");
+});
+
+tripleAngleSlider.addEventListener("change", () => {
+	const root = document.querySelector(":root")! as HTMLElement;
+	root.style.setProperty("--triple-angle", tripleAngleSlider.value.toString() + "deg");
+});
 
 // ============================
 // === Implementation Stuff ===

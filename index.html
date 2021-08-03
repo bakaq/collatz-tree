@@ -6,7 +6,7 @@
 			:root {
 				--half-angle: 0.2rad;
 				--triple-angle: -0.7rad;
-				--transition-time: 1s;
+				--transition-time: 3s;
 			}
 
 			html {
@@ -64,6 +64,19 @@
 		</style>
 	</head>
 	<body>
+		<div id="controllers">
+			<div class="controller">
+				<label for="half-angle">From Half Angle: </label>
+				<input id="half-angle" type="range" min="-45" max="45" step="0.1" value="30">
+			</div>
+
+			<div class="controller">
+				<label for="triple-angle">From Triple + 1 Angle: </label>
+				<input id="triple-angle" type="range" min="-45" max="45" step="0.1" value="30">
+			</div>
+
+		</div>
+
 		<div id="svg-wrapper">
 			<svg id="svg">
 				<!-- Cool neon blur on lines -->

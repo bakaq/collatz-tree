@@ -9,6 +9,17 @@ const svgNS = "http://www.w3.org/2000/svg";
 // Draws initial tree
 const tree = getTree(20);
 drawTree(lines, tree);
+// Connects the DOM
+const halfAngleSlider = document.querySelector("#half-angle");
+const tripleAngleSlider = document.querySelector("#triple-angle");
+halfAngleSlider.addEventListener("change", () => {
+    const root = document.querySelector(":root");
+    root.style.setProperty("--half-angle", halfAngleSlider.value.toString() + "deg");
+});
+tripleAngleSlider.addEventListener("change", () => {
+    const root = document.querySelector(":root");
+    root.style.setProperty("--triple-angle", tripleAngleSlider.value.toString() + "deg");
+});
 // Gets a tree and calculates one more layer
 function calculateNextDepth(tree, depth) {
     if (tree.depth === depth) {
